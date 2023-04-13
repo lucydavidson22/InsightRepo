@@ -1,0 +1,12 @@
+.documentDiv {
+  width: 49%;
+  height: 30px;
+  margin: 2px;
+  font-size: 1.3rem;
+  border: solid thin darkgrey;
+  float: left;
+  padding: .25rem;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

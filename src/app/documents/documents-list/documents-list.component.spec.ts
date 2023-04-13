@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MciListComponent } from './mci-list.component';
+import { DocumentsListComponent } from './documents-list.component';
 
-describe('MciListComponent', () => {
-  let component: MciListComponent;
-  let fixture: ComponentFixture<MciListComponent>;
+describe('DocumentsListComponent', () => {
+  let component: DocumentsListComponent;
+  let fixture: ComponentFixture<DocumentsListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MciListComponent ]
+      declarations: [ DocumentsListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MciListComponent);
+    fixture = TestBed.createComponent(DocumentsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

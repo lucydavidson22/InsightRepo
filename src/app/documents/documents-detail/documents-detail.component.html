@@ -1,0 +1,67 @@
+<div *ngIf="document?.name" class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+  <div class="panel-heading">
+    <div class="row pad-all">
+      <h4 class="title margin-left-right">{{document?.name}}</h4>
+      <div class="row pull-right margin-left-right">
+        <a (click)="onView()" class="btn btn-primary" *ngIf="document?.url">View</a>
+        <a [routerLink]="['edit']" class="btn btn-info" >Edit</a>
+        <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="pad-left-right">
+      <!-- <br> -->
+      <!-- <div class="row" *ngIf="document?.url">
+        <label>URL:</label>
+        <span class="label-value"> {{document?.url}}</span>
+      </div> -->
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.date">
+        <label>Date:</label>
+        <span class="label-value"> {{document?.date}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.clientSponsor">
+        <label>Client/Sponsor:</label>
+        <span class="label-value"> {{document?.clientSponsor}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.location">
+        <label>Location:</label>
+        <span class="label-value"> {{document?.location}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.publication">
+        <label>Publication:</label>
+        <span class="label-value"> {{document?.publication}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.category">
+        <label>Category:</label>
+        <span class="label-value"> {{document?.category}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.tangibleItems">
+        <label>Tangible Items:</label>
+        <span class="label-value"> {{document?.tangibleItems}}</span>
+      </div>
+       <!-- <br> -->
+      <div class="row" *ngIf="document?.description">
+        <label>Description:</label>
+        <span class="label-value"> {{document?.description}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.profileStartedBy">
+        <label>Profile Page Started By:</label>
+        <span class="label-value"> {{document?.profileStartedBy}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="document?.profileStatus">
+        <label>Profile Page Status:</label>
+        <span class="label-value"> {{document?.profileStatus}}</span>
+      </div>
+
+    </div>
+  </div>
+</div>
