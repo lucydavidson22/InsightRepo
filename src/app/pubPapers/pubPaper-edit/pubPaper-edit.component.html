@@ -1,0 +1,140 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="pubPaper-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Paper:</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            size="120"
+            max="120"
+            name="name"
+            [ngModel]=pubPaper?.name
+            required
+            #name="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="year">Year:</label>
+          <input
+            type="text"
+            id="year"
+            class="form-control"
+            size="150"
+            max="255"
+            name="year"
+            [ngModel]=pubPaper?.year
+            #year="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="pub">Publication:</label>
+          <input
+            type="text"
+            id="pub"
+            class="form-control"
+            size="120"
+            max="255"
+            name="pub"
+            [ngModel]=pubPaper?.pub
+            #pub = "ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="cat">Category:</label>
+          <input
+            type="text"
+            id="cat"
+            class="form-control"
+            size="120"
+            max="255"
+            name="cat"
+            [ngModel]=pubPaper?.cat
+            #cat = "ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="projDesc">Project Description:</label>
+          <input
+            type="text"
+            id="projDesc"
+            class="form-control"
+            size="120"
+            max="255"
+            name="projDesc"
+            [ngModel]=pubPaper?.projDesc
+            #projDesc = "ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="profPage">Profile Page:</label>
+          <input
+            type="text"
+            id="profPage"
+            class="form-control"
+            size="120"
+            max="255"
+            name="profPage"
+            [ngModel]=pubPaper?.profPage
+            #profPage = "ngModel">
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="category">Category:</label>
+          <select id="category" class="form-control" name="category" [ngModel]=pubPaper?.category #category="ngModel">
+            <option value="" disabled selected>Select a category</option>
+            <option value="LTC Training">LTC Training</option>
+            <option value="Education">Education</option>
+            <option value="Research">Research</option>
+            <option value="Tool">Tool</option>
+            <option value="Health Management Program">Health Management Program</option>
+            <option value="Publication">Publication</option>
+            <option value="Presentation">Presentation</option>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="topic">Topic:</label>
+          <input
+            type="text"
+            id="topic"
+            class="form-control"
+            size="120"
+            max="255"
+            name="topic"
+            [ngModel]=pubPaper?.topic
+            #topic = "ngModel">
+        </div>
+      </div>
+
+      <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
+        The and Project Name is a required field.
+      </div>
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+

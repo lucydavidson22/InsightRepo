@@ -2,7 +2,7 @@ var Sequence = require('../models/sequence');
 // const res = require("express/lib/response");
 
 var maxDocumentId;
-var maxPaperPubId;
+var maxPubPaperId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -13,11 +13,11 @@ function SequenceGenerator() {
     } else if (!sequence) {
       console.log("Sequence not found");
     }
-    // else {
+    else {
       sequenceId = sequence._id;
       maxDocumentId = sequence.maxDocumentId;
-      maxPaperPubId = sequence.maxPaperPubId;
-    // }
+      maxPubPaperId = sequence.maxPubPaperId;
+    }
   });
 
 }
@@ -34,10 +34,11 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       console.log('get the maxId');
       nextId = maxDocumentId;
       break;
-    case 'paperPubs':
-      maxPaperPubId++;
-      updateObject = {maxPaperPubId: maxPaperPubId};
-      nextId = maxPaperPubId;
+    case 'pubPapers':
+      maxPubPaperId++;
+      updateObject = { maxPubPaperId: maxPubPaperId };
+      console.log('get the max id of pubpapers');
+      nextId = maxPubPaperId;
       break;
     default:
       return -1;

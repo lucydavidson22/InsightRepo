@@ -1,0 +1,52 @@
+<div *ngIf="pubPaper?.name" class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+  <div class="panel-heading">
+    <div class="row pad-all">
+      <h4 class="title margin-left-right">{{pubPaper?.name}}</h4>
+      <div class="row pull-right margin-left-right">
+        <!-- <a (click)="onView()" class="btn btn-primary" *ngIf="pubPaper?.url">View</a> -->
+        <a [routerLink]="['edit']" class="btn btn-info" >Edit</a>
+        <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="pad-left-right">
+      <!-- <br> -->
+      <!-- <div class="row" *ngIf="pubPaper?.url">
+        <label>URL:</label>
+        <span class="label-value"> {{pubPaper?.url}}</span>
+      </div> -->
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.year">
+        <label>Year:</label>
+        <span class="label-value"> {{pubPaper?.year}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.pub">
+        <label>Publication:</label>
+        <span class="label-value"> {{pubPaper?.pub}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.cat">
+        <label>Category:</label>
+        <span class="label-value"> {{pubPaper?.cat}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.projDesc">
+        <label>Project Description:</label>
+        <span class="label-value"> {{pubPaper?.projDesc}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.profPage">
+        <label>Profile Page:</label>
+        <span class="label-value"> {{pubPaper?.profPage}}</span>
+      </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.topic">
+        <label>Topic:</label>
+        <span class="label-value"> {{pubPaper?.topic}}</span>
+      </div>
+
+    </div>
+  </div>
+</div>

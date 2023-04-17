@@ -1,42 +1,42 @@
 const sequenceGenerator = require('./sequenceGenerator');
-const PaperPub = require('../models/paperPub');
+const PubPaper = require('../models/pubPaper');
 
 var express = require('express');
 var router = express.Router();
 module.exports = router;
 
 router.get("/", (req, res, next) => {
-  PaperPub.find()
-  .then(paperPubs => {
-    if(!paperPubs){
+  PubPaper.find()
+  .then(pubPapers => {
+    if(!pubPapers){
       return res.status(500).json({
-        message: "PaperPubs were not fetched!"
+        message: "PubPapers were not fetched!"
       })
     }
-    return res.status(200).json(paperPubs);
+    return res.status(200).json(pubPapers);
   });
 });
 
 router.post('/', (req, res, next) => {
-  console.log('paperPubs posted?');
-  const maxPaperPubId = sequenceGenerator.nextId("paperPubs");
+  console.log('pubPapers posted?');
+  const maxPubPaperId = sequenceGenerator.nextId("pubPapers");
 
-  const paperPub = new PaperPub({
-    id: maxPaperPubId,
+  const pubPaper = new PubPaper({
+    id: maxPubPaperId,
     name: req.body.name,
     year: req.body.year,
     pub: req.body.pub,
     cat: req.body.cat,
     projDesc: req.body.projDesc,
     profPage: req.body.profPage,
-    topic: req.body.topic,
+    topic: req.body.topic
   });
 
-  paperPub.save()
-    .then(createdPaperPub => {
+  pubPaper.save()
+    .then(createdPubPaper => {
       res.status(201).json({
-        message: 'PaperPub added successfully',
-        paperPub: createdPaperPub
+        message: 'PubPaper added successfully',
+        pubPaper: createdPubPaper
       });
     })
     .catch(error => {
@@ -48,20 +48,20 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-  PaperPub.findOne({ id: req.params.id })
-    .then(paperPub => {
-      paperPub.name = req.body.name;
-      paperPub.year = req.body.year;
-      paperPub.pub = req.body.pub;
-      paperPub.cat = req.body.cat;
-      paperPub.projDesc = req.body.projDesc;
-      paperPub.profPage = req.body.profPage;
-      paperPub.topic = req.body.topic;
+  PubPaper.findOne({ id: req.params.id })
+    .then(pubPaper => {
+      pubPaper.name = req.body.name;
+      pubPaper.year = req.body.year,
+      pubPaper.pub = req.body.pub,
+      pubPaper.cat = req.body.cat,
+      pubPaper.projDesc = req.body.projDesc,
+      pubPaper.profPage = req.body.profPage,
+      pubPaper.topic = req.body.topic
 
-      PaperPub.updateOne({ id: req.params.id }, paperPub)
+      PubPaper.updateOne({ id: req.params.id }, pubPaper)
         .then(result => {
           res.status(204).json({
-            message: 'PaperPub updated successfully'
+            message: 'PubPaper updated successfully'
           })
         })
         .catch(error => {
@@ -73,19 +73,19 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'PaperPub not found.',
-        error: { paperPub: 'PaperPub not found'}
+        message: 'PubPaper not found.',
+        error: { pubPaper: 'PubPaper not found'}
       });
     });
 });
 
 router.delete("/:id", (req, res, next) => {
-  PaperPub.findOne({ id: req.params.id })
-    .then(paperPub => {
-      PaperPub.deleteOne({ id: req.params.id })
+  PubPaper.findOne({ id: req.params.id })
+    .then(pubPaper => {
+      PubPaper.deleteOne({ id: req.params.id })
         .then(result => {
           res.status(204).json({
-            message: "PaperPub deleted successfully"
+            message: "PubPaper deleted successfully"
           });
         })
         .catch(error => {
@@ -97,8 +97,8 @@ router.delete("/:id", (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'PaperPub not found.',
-        error: { paperPub: 'PaperPub not found'}
+        message: 'PubPaper not found.',
+        error: { pubPaper: 'PubPaper not found'}
       });
     });
 });

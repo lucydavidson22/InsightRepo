@@ -1,5 +1,4 @@
 .documentDiv {
-  /* min-height: 9rem; */
   width: 49%;
   height: 30px;
   margin: 2px;
@@ -7,9 +6,6 @@
   border: solid thin darkgrey;
   float: left;
   padding: .25rem;
-/* }
-
-.documentDiv{ */
   white-space:nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

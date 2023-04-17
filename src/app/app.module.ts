@@ -23,12 +23,12 @@ import { ProjectChoicesDetailComponent } from './project-choices/project-choices
 import { ProjectChoicesItemComponent } from './project-choices/project-choices-item/project-choices-item.component';
 import { ProjectChoicesListComponent } from './project-choices/project-choices-list/project-choices-list.component';
 
-import { PaperPubsComponent } from './paper-pubs/paper-pubs.component';
-import { PaperPubEditComponent } from './paper-pubs/paper-pub-edit/paper-pub-edit.component';
-import { PaperPubsItemComponent } from './paper-pubs/paper-pubs-item/paper-pubs-item.component';
-import { PaperPubsDetailComponent } from './paper-pubs/paper-pubs-detail/paper-pubs-detail.component';
-import { PaperPubsListComponent } from './paper-pubs/paper-pubs-list/paper-pubs-list.component';
-
+import { PubPapersComponent } from './pubPapers/pubPapers.component';
+import { PubPaperEditComponent } from './pubPapers/pubPaper-edit/pubPaper-edit.component';
+import { PubPapersDetailComponent } from './pubPapers/pubPapers-detail/pubPapers-detail.component';
+import { PubPapersItemComponent } from './pubPapers/pubPapers-item/pubPapers-item.component';
+import { PubPapersListComponent } from './pubPapers/pubPapers-list/pubPapers-list.component';
+import { PubPapersFilterPipe } from './pubPapers/pubPapers-filter.pipe';
 
 
 @NgModule({
@@ -46,12 +46,12 @@ import { PaperPubsListComponent } from './paper-pubs/paper-pubs-list/paper-pubs-
     ProjectChoicesDetailComponent,
     ProjectChoicesItemComponent,
     ProjectChoicesListComponent,
-    PaperPubsComponent,
-    PaperPubEditComponent,
-    PaperPubsItemComponent,
-    PaperPubsDetailComponent,
-    PaperPubsListComponent,
-    PaperPubsDetailComponent
+    PubPapersComponent,
+    PubPaperEditComponent,
+    PubPapersDetailComponent,
+    PubPapersItemComponent,
+    PubPapersListComponent,
+    PubPapersFilterPipe,
   ],
   imports: [
     BrowserModule,
