@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const sequenceSchema = mongoose.Schema({
-  maxDocumentId: {type: String, required: true}
+  maxDocumentId: {type: String, required: true},
+  maxPaperPubId: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Sequence', sequenceSchema);

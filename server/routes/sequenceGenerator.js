@@ -2,8 +2,7 @@ var Sequence = require('../models/sequence');
 // const res = require("express/lib/response");
 
 var maxDocumentId;
-var maxMessageId;
-var maxContactId;
+var maxPaperPubId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -11,21 +10,14 @@ function SequenceGenerator() {
   .exec(function(err, sequence) {
     if (err) {
       console.log("An error occurred: ", err);
-      // Handle the error appropriately, e.g. return an error response or throw an error
-      // return res.status(500).json({
-      //   title: 'An error occurred',
-      //   error: err
-      // });
     } else if (!sequence) {
       console.log("Sequence not found");
-      // Handle the case where sequence is not found in the database
-      // e.g. return an error response or throw an error
-    } else {
+    }
+    // else {
       sequenceId = sequence._id;
       maxDocumentId = sequence.maxDocumentId;
-      maxMessageId = sequence.maxMessageId;
-      maxContactId = sequence.maxContactId;
-    }
+      maxPaperPubId = sequence.maxPaperPubId;
+    // }
   });
 
 }
@@ -42,15 +34,10 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       console.log('get the maxId');
       nextId = maxDocumentId;
       break;
-    case 'messages':
-      maxMessageId++;
-      updateObject = {maxMessageId: maxMessageId};
-      nextId = maxMessageId;
-      break;
-    case 'contacts':
-      maxContactId++;
-      updateObject = {maxContactId: maxContactId};
-      nextId = maxContactId;
+    case 'paperPubs':
+      maxPaperPubId++;
+      updateObject = {maxPaperPubId: maxPaperPubId};
+      nextId = maxPaperPubId;
       break;
     default:
       return -1;

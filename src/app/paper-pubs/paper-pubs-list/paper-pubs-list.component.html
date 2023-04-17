@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Paper Publications</span>
+      <a [routerLink]="['new']" routerLinkActive="router-link-active" class="btn btn-success pull-right">Add Publication</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <insight-proj-paper-pubs-item class="masonry-item"
+      *ngFor="let paperPub of paperPubs"
+      [paperPub]="paperPub"></insight-proj-paper-pubs-item>
+      <!-- <cms-documents-item class="masonry-item"
+        *ngFor="let document of documents | documentsFilter:term"
+        [document]="document"></cms-documents-item> -->
+    </div>
+  </div>
+</div>

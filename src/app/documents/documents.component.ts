@@ -3,7 +3,7 @@ import { Document } from './document.model';
 import { DocumentService } from './document.service';
 
 @Component({
-  selector: 'InsightProj-documents',
+  selector: 'insight-proj-documents',
   templateUrl: './documents.component.html',
   styleUrls: ['./documents.component.css']
 })

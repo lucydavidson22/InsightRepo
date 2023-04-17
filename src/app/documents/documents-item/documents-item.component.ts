@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angula
 import { Document } from '../document.model';
 
 @Component({
-  selector: 'InsightProj-documents-item',
+  selector: 'insight-proj-documents-item',
   templateUrl: './documents-item.component.html',
   styleUrls: ['./documents-item.component.css']
 })

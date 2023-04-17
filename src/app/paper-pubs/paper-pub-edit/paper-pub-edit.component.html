@@ -1,0 +1,77 @@
+<!-- <p>paper-pub-edit works!</p> -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="paper-pub-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Paper:</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            size="120"
+            max="120"
+            name="name"
+            [ngModel]=paperPub?.name
+            required
+            #name="ngModel">
+        </div>
+      </div>
+      <!--  -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="year">Year:</label>
+          <input
+            type="text"
+            id="year"
+            class="form-control"
+            size="120"
+            max="120"
+            name="year"
+            [ngModel]=paperPub?.year
+            #year="ngModel">
+        </div>
+      </div>
+      <!--  -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="pub">Publication:</label>
+          <input
+            type="text"
+            id="pub"
+            class="form-control"
+            size="120"
+            max="120"
+            name="pub"
+            [ngModel]=paperPub?.pub
+            #pub="ngModel">
+        </div>
+      </div>
+      <!--  -->
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="cat">Category:</label>
+          <input
+            type="text"
+            id="cat"
+            class="form-control"
+            size="120"
+            max="120"
+            name="cat"
+            [ngModel]=paperPub?.cat
+            #cat="ngModel">
+        </div>
+      </div>
+
+
+
+      <!--  -->
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

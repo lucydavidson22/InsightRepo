@@ -11,6 +11,7 @@ let logger = require('morgan');
 // import the routing file to handle the default (index) route
 let index = require('./server/routes/app');
 const documentsRoutes = require('./server/routes/documents');
+const paperPubsRoutes = require('./server/routes/paperPubs');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -41,11 +42,12 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/InsightProj')));
+app.use(express.static(path.join(__dirname, 'dist/insight-proj')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
 app.use('/documents', documentsRoutes);
+app.use('/paperPubs', paperPubsRoutes);
 
 //For 404
 app.use((req, res, next) => {
@@ -70,7 +72,7 @@ mongoose.connect('mongodb+srv://Davidson:6erYFFMgI4qWRNod@clustercms.nn6yu.mongo
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/InsightProj/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/insight-proj/index.html'));
 });
 
 // Define the port address and tell express to use this port

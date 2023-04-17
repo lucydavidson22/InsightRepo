@@ -4,7 +4,7 @@ import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
 
 @Component({
-  selector: 'InsightProj-documents-list',
+  selector: 'insight-proj-documents-list',
   templateUrl: './documents-list.component.html',
   styleUrls: ['./documents-list.component.css']
 })

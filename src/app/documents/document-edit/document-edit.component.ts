@@ -6,7 +6,7 @@ import { Document } from '../document.model';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'InsightProj-document-edit',
+  selector: 'insight-proj-document-edit',
   templateUrl: './document-edit.component.html',
   styleUrls: ['./document-edit.component.css']
 })
