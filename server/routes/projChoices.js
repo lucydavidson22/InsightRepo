@@ -24,16 +24,7 @@ router.post('/', (req, res, next) => {
   const projChoice = new ProjChoice({
     id: maxProjChoiceId,
     name: req.body.name,
-    url: req.body.url,
-    date: req.body.date,
-    clientSponsor: req.body.clientSponsor,
-    location: req.body.location,
-    publication: req.body.publication,
-    category: req.body.category,
-    tangibleItems: req.body.tangibleItems,
-    description: req.body.description,
-    profileStartedBy: req.body.profileStartedBy,
-    profileStatus: req.body.profileStatus
+    topTwenty: req.body.topTwenty
   });
 
   projChoice.save()
@@ -55,16 +46,7 @@ router.put('/:id', (req, res, next) => {
   ProjChoice.findOne({ id: req.params.id })
     .then(projChoice => {
       projChoice.name = req.body.name;
-      projChoice.url = req.body.url;
-      projChoice.date = req.body.date;
-      projChoice.clientSponsor = req.body.clientSponsor;
-      projChoice.location = req.body.location;
-      projChoice.publication = req.body.publication;
-      projChoice.category = req.body.category;
-      projChoice.tangibleItems = req.body.tangibleItems;
-      projChoice.description = req.body.description;
-      projChoice.profileStartedBy = req.body.profileStartedBy;
-      projChoice.profileStatus = req.body.profileStatus;
+      projChoice.topTwenty = req.body.topTwenty;
 
       ProjChoice.updateOne({ id: req.params.id }, projChoice)
         .then(result => {

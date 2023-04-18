@@ -15,13 +15,8 @@ export class ProjChoicesFilterPipe implements PipeTransform {
       filteredProjChoices = projChoices.filter(
         (projChoice: ProjChoice) => {
           const name = projChoice.name.toLowerCase();
-          const category = projChoice.category.toLowerCase();
-          const date = projChoice.date.toLowerCase();
-          const tangibleItems = projChoice.tangibleItems.toLowerCase();
-          const clientSponsor = projChoice.clientSponsor.toLowerCase();
-          const profStartedBy = projChoice.profileStartedBy.toLowerCase();
           const termLowerCase = term.toLowerCase();
-          return name.includes(termLowerCase) || category.includes(termLowerCase) || date.includes(termLowerCase) || tangibleItems.includes(termLowerCase) || clientSponsor.includes(termLowerCase) || profStartedBy.includes(termLowerCase);
+          return name.includes(termLowerCase) ;
         }
       );
     }
@@ -29,16 +24,7 @@ export class ProjChoicesFilterPipe implements PipeTransform {
       const noProjChoicesFound: ProjChoice = {
         name: "No projChoices found",
         id: '',
-        url: '',
-        date: '',
-        clientSponsor:'',
-        location: '',
-        publication: '',
-        category:'',
-        tangibleItems:'',
-        description: '',
-        profileStartedBy: '',
-        profileStatus: ''
+        topTwenty: false
       };
       return [noProjChoicesFound];
       // return [{ message: "No projChoices found"}];

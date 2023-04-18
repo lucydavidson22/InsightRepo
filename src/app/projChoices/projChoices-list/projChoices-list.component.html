@@ -13,7 +13,9 @@
     <div class="center-panel" class="masonry-container">
       <insight-proj-projChoices-item class="masonry-item"
       *ngFor="let projChoice of projChoices"
-      [projChoice]="projChoice"></insight-proj-projChoices-item>
+      [projChoice]="projChoice"
+      [ngStyle]="{'background-color': projChoice.topTwenty ? 'yellow' : 'white'}">
+      </insight-proj-projChoices-item>
     </div>
   </div>
 </div>

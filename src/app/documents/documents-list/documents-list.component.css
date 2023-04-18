@@ -8,10 +8,6 @@
     padding-right:1rem;
   }
 
-  /* #insight-proj-documents-list{
-    width:50%;
-  } */
-
-  .btn{
-    word-break: break-word;
+  .input-group{
+    padding-right: 0;
   }

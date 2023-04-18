@@ -35,11 +35,11 @@ export class ProjChoicesDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
-  onView(){
-    if(this.projChoice.url){
-      this.nativeWindow.open(this.projChoice.url);
-    }
-  }
+  // onView(){
+  //   if(this.projChoice.url){
+  //     this.nativeWindow.open(this.projChoice.url);
+  //   }
+  // }
 
   onDelete(){
     this.projChoiceService.deleteProjChoice(this.projChoice);
