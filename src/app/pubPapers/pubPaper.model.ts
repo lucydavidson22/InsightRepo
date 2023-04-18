@@ -7,6 +7,7 @@ export class PubPaper{
       public cat:string,
       public projDesc:string,
       public profPage:string,
-      public topic:string
+      public topic:string,
+      public citation:string
       ){}
 }

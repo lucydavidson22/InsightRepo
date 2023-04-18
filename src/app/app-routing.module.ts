@@ -5,7 +5,9 @@ import { DocumentEditComponent } from "./documents/document-edit/document-edit.c
 import { DocumentsDetailComponent } from "./documents/documents-detail/documents-detail.component";
 import { DocumentsComponent } from "./documents/documents.component";
 
-import { ProjectChoicesComponent } from "./project-choices/project-choices.component";
+import { ProjChoicesComponent } from "./projChoices/projChoices.component";
+import { ProjChoiceEditComponent } from "./projChoices/projChoice-edit/projChoice-edit.component";
+import { ProjChoicesDetailComponent } from "./projChoices/projChoices-detail/projChoices-detail.component";
 
 import { PubPaperEditComponent } from "./pubPapers/pubPaper-edit/pubPaper-edit.component";
 import { PubPapersDetailComponent } from "./pubPapers/pubPapers-detail/pubPapers-detail.component";
@@ -23,7 +25,11 @@ const appRoutes: Routes = [
     {path: ':id', component: PubPapersDetailComponent},
     {path: ':id/edit', component: PubPaperEditComponent}
   ]},
-  { path: 'project-choices', component: ProjectChoicesComponent },
+  {path: 'projChoices', component: ProjChoicesComponent, children: [
+    {path: 'new', component: ProjChoiceEditComponent},
+    {path: ':id', component: ProjChoicesDetailComponent},
+    {path: ':id/edit', component: ProjChoiceEditComponent}
+  ]},
   {path: '**', component: DocumentsComponent}
 ];
 

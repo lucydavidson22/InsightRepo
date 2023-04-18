@@ -9,6 +9,7 @@ const pubPaperSchema = mongoose.Schema({
    projDesc: { type:String },
    profPage: { type:String},
    topic: { type:String },
+   citation: { type:String },
    children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PubPaper' }]
 
 });

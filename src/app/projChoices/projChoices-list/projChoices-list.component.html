@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Project</span>
+      <div class="input-group pull-left pad-left-right col-xs-7">
+        <input #searchBox class="form-control pull-right" placeholder="Enter a seach value..." (keyup)="search(searchBox.value)">
+        <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)"></div>
+      </div>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Project</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel" class="masonry-container">
+      <insight-proj-projChoices-item class="masonry-item"
+      *ngFor="let projChoice of projChoices"
+      [projChoice]="projChoice"></insight-proj-projChoices-item>
+    </div>
+  </div>
+</div>

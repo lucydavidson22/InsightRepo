@@ -46,6 +46,11 @@
         <label>Topic:</label>
         <span class="label-value"> {{pubPaper?.topic}}</span>
       </div>
+      <!-- <br> -->
+      <div class="row" *ngIf="pubPaper?.citation">
+        <label>Citation:</label>
+        <span class="label-value"> {{pubPaper?.citation}}</span>
+      </div>
 
     </div>
   </div>

@@ -17,11 +17,11 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
 import { DocumentsListComponent } from './documents/documents-list/documents-list.component';
 import { DocumentsFilterPipe } from './documents/documents-filter.pipe';
 
-import { ProjectChoicesComponent } from './project-choices/project-choices.component';
-import { ProjectChoiceEditComponent } from './project-choices/project-choice-edit/project-choice-edit.component';
-import { ProjectChoicesDetailComponent } from './project-choices/project-choices-detail/project-choices-detail.component';
-import { ProjectChoicesItemComponent } from './project-choices/project-choices-item/project-choices-item.component';
-import { ProjectChoicesListComponent } from './project-choices/project-choices-list/project-choices-list.component';
+import { ProjChoicesComponent } from './projChoices/projChoices.component';
+import { ProjChoiceEditComponent } from './projChoices/projChoice-edit/projChoice-edit.component';
+import { ProjChoicesDetailComponent } from './projChoices/projChoices-detail/projChoices-detail.component';
+import { ProjChoicesItemComponent } from './projChoices/projChoices-item/projChoices-item.component';
+import { ProjChoicesListComponent } from './projChoices/projChoices-list/projChoices-list.component';
 
 import { PubPapersComponent } from './pubPapers/pubPapers.component';
 import { PubPaperEditComponent } from './pubPapers/pubPaper-edit/pubPaper-edit.component';
@@ -41,11 +41,11 @@ import { PubPapersFilterPipe } from './pubPapers/pubPapers-filter.pipe';
     DocumentsDetailComponent,
     DocumentEditComponent,
     DocumentsFilterPipe,
-    ProjectChoicesComponent,
-    ProjectChoiceEditComponent,
-    ProjectChoicesDetailComponent,
-    ProjectChoicesItemComponent,
-    ProjectChoicesListComponent,
+    ProjChoicesComponent,
+    ProjChoiceEditComponent,
+    ProjChoicesDetailComponent,
+    ProjChoicesItemComponent,
+    ProjChoicesListComponent,
     PubPapersComponent,
     PubPaperEditComponent,
     PubPapersDetailComponent,

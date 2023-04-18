@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form id="projChoice-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="name">Project Title:</label>
@@ -11,7 +11,7 @@
             cols="50" 
             rows="2"
             name="name"
-            [ngModel]=document?.name
+            [ngModel]=projChoice?.name
             required
             #name="ngModel"></textarea>
         </div>
@@ -27,7 +27,7 @@
             size="150"
             max="255"
             name="url"
-            [ngModel]=document?.url
+            [ngModel]=projChoice?.url
             #url="ngModel">
         </div>
       </div>
@@ -42,7 +42,7 @@
             size="120"
             max="255"
             name="date"
-            [ngModel]=document?.date
+            [ngModel]=projChoice?.date
             #date = "ngModel">
         </div>
       </div>
@@ -57,7 +57,7 @@
             size="120"
             max="255"
             name="clientSponsor"
-            [ngModel]=document?.clientSponsor
+            [ngModel]=projChoice?.clientSponsor
             #clientSponsor = "ngModel">
         </div>
       </div>
@@ -72,7 +72,7 @@
             size="120"
             max="255"
             name="location"
-            [ngModel]=document?.location
+            [ngModel]=projChoice?.location
             #location = "ngModel">
         </div>
       </div>
@@ -87,7 +87,7 @@
             size="120"
             max="255"
             name="publication"
-            [ngModel]=document?.publication
+            [ngModel]=projChoice?.publication
             #publication = "ngModel">
         </div>
       </div>
@@ -102,7 +102,7 @@
             size="120"
             max="255"
             name="category"
-            [ngModel]=document?.category
+            [ngModel]=projChoice?.category
             #category = "ngModel">
         </div>
       </div> -->
@@ -110,7 +110,7 @@
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="category">Category:</label>
-          <select id="category" class="form-control" name="category" [ngModel]=document?.category #category="ngModel">
+          <select id="category" class="form-control" name="category" [ngModel]=projChoice?.category #category="ngModel">
             <option value="" disabled selected>Select a category</option>
             <option value="LTC Training">LTC Training</option>
             <option value="Education">Education</option>
@@ -133,7 +133,7 @@
             size="120"
             max="255"
             name="tangibleItems"
-            [ngModel]=document?.tangibleItems
+            [ngModel]=projChoice?.tangibleItems
             #tangibleItems = "ngModel">
         </div>
       </div>
@@ -148,7 +148,7 @@
             cols="50" 
             rows="2"
             name="description"
-            [ngModel]=document?.description
+            [ngModel]=projChoice?.description
             #description = "ngModel"></textarea>
         </div>
       </div>
@@ -163,7 +163,7 @@
             size="120"
             max="255"
             name="profileStartedBy"
-            [ngModel]=document?.profileStartedBy
+            [ngModel]=projChoice?.profileStartedBy
             #profileStartedBy = "ngModel">
         </div>
       </div>
@@ -178,7 +178,7 @@
             size="120"
             max="255"
             name="profileStatus"
-            [ngModel]=document?.profileStatus
+            [ngModel]=projChoice?.profileStatus
             #profileStatus = "ngModel">
         </div>
       </div>

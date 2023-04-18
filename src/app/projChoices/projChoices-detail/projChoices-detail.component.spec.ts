@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProjectChoiceEditComponent } from './project-choice-edit.component';
+import { ProjChoicesDetailComponent } from './projChoices-detail.component';
 
-describe('ProjectChoiceEditComponent', () => {
-  let component: ProjectChoiceEditComponent;
-  let fixture: ComponentFixture<ProjectChoiceEditComponent>;
+describe('ProjChoicesDetailComponent', () => {
+  let component: ProjChoicesDetailComponent;
+  let fixture: ComponentFixture<ProjChoicesDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectChoiceEditComponent ]
+      declarations: [ ProjChoicesDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProjectChoiceEditComponent);
+    fixture = TestBed.createComponent(ProjChoicesDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

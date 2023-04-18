@@ -4,16 +4,16 @@
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="name">Paper:</label>
-          <input
+          <textarea
             type="text"
             id="name"
             class="form-control"
-            size="120"
-            max="120"
+            cols="50" 
+            rows="2"
             name="name"
             [ngModel]=pubPaper?.name
             required
-            #name="ngModel">
+            #name="ngModel"></textarea>
         </div>
       </div>
 
@@ -65,15 +65,15 @@
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="projDesc">Project Description:</label>
-          <input
+          <textarea
             type="text"
             id="projDesc"
             class="form-control"
-            size="120"
-            max="255"
+            cols="50" 
+            rows="4"
             name="projDesc"
             [ngModel]=pubPaper?.projDesc
-            #projDesc = "ngModel">
+            #projDesc = "ngModel"></textarea>
         </div>
       </div>
 
@@ -120,6 +120,21 @@
             name="topic"
             [ngModel]=pubPaper?.topic
             #topic = "ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="citation">Citation:</label>
+          <textarea
+            id="citation"
+            class="form-control"
+            name="citation"
+            cols="50" 
+            rows="2"
+            [ngModel]=pubPaper?.citation
+            #citation = "ngModel"
+            style="vertical-align: top;"></textarea>
         </div>
       </div>
 

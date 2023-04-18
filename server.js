@@ -11,7 +11,8 @@ let logger = require('morgan');
 // import the routing file to handle the default (index) route
 let index = require('./server/routes/app');
 const documentsRoutes = require('./server/routes/documents');
-const pubPapersRoutes = require('./server/routes/pubPapers')
+const pubPapersRoutes = require('./server/routes/pubPapers');
+const projChoicesRoutes = require('./server/routes/projChoices');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -48,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'dist/insight-proj')));
 app.use('/', index);
 app.use('/documents', documentsRoutes);
 app.use('/pubPapers', pubPapersRoutes);
+app.use('/projChoices', projChoicesRoutes);
 
 //For 404
 app.use((req, res, next) => {

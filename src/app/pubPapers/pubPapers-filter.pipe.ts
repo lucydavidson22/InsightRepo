@@ -35,7 +35,8 @@ export class PubPapersFilterPipe implements PipeTransform {
         cat:'',
         projDesc:'',
         profPage:'',
-        topic:''
+        topic:'',
+        citation:''
       };
       return [noPubPapersFound];
       // return [{ message: "No pubPapers found"}];

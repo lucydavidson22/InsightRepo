@@ -3,6 +3,7 @@ var Sequence = require('../models/sequence');
 
 var maxDocumentId;
 var maxPubPaperId;
+var maxProjChoiceId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -17,6 +18,7 @@ function SequenceGenerator() {
       sequenceId = sequence._id;
       maxDocumentId = sequence.maxDocumentId;
       maxPubPaperId = sequence.maxPubPaperId;
+      maxProjChoiceId = sequence.maxProjChoiceId;
     }
   });
 
@@ -39,6 +41,12 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       updateObject = { maxPubPaperId: maxPubPaperId };
       console.log('get the max id of pubpapers');
       nextId = maxPubPaperId;
+      break;
+    case 'projChoices':
+      maxProjChoiceId++;
+      updateObject = { maxProjChoiceId: maxProjChoiceId };
+      console.log('get the max id of pubpapers');
+      nextId = maxProjChoiceId;
       break;
     default:
       return -1;
