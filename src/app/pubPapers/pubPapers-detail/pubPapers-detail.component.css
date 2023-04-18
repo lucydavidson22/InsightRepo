@@ -15,8 +15,27 @@
   word-wrap: break-word;
 }
 
-div.row label {
+/* div.row label {
   font-weight: bold;
   color: blue;
   font-size: 14px;
+  display: block;
+  text-align: right;
+  margin-bottom: 5px;
+} */
+
+.row {
+  display: flex;
+  align-items: center;
 }
+
+label {
+  flex: 0 0 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+span {
+  flex: 1;
+}
+

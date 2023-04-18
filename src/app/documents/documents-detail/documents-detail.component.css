@@ -14,3 +14,23 @@
   margin-right:1rem;
   word-wrap: break-word;
 }
+
+div.panel-body div.row {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  flex: 0 0 170px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+span {
+  flex: 1;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1.4; 
+}
+
+
