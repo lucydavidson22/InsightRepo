@@ -13,6 +13,7 @@ let index = require('./server/routes/app');
 const documentsRoutes = require('./server/routes/documents');
 const pubPapersRoutes = require('./server/routes/pubPapers');
 const projChoicesRoutes = require('./server/routes/projChoices');
+const userRoutes = require('./server/routes/users');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -50,6 +51,7 @@ app.use('/', index);
 app.use('/documents', documentsRoutes);
 app.use('/pubPapers', pubPapersRoutes);
 app.use('/projChoices', projChoicesRoutes);
+app.use('/user', userRoutes);
 
 //For 404
 app.use((req, res, next) => {
