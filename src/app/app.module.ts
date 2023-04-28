@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DndModule } from 'ng2-dnd';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DocumentsComponent } from './documents/documents.component';
@@ -71,7 +70,6 @@ import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    DndModule.forRoot(),
     RouterModule
   ],
   providers: [],
