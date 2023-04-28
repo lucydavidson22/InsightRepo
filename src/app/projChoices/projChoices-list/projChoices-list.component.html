@@ -9,12 +9,17 @@
       <a [routerLink]="['new']" class="btn btn-success pull-right">Add Project</a>
     </div>
   </div>
+  <div class="legend">
+    <span class="topTwenty-color"></span> Top Twenty
+    <span class="backup-color"></span> Backup
+    <span class="notUnderConsideration-color"></span> No Longer Under Consideration
+  </div>
+
   <div class="panel-body">
     <div class="center-panel" class="masonry-container">
       <insight-proj-projChoices-item class="masonry-item"
-      *ngFor="let projChoice of projChoices"
-      [projChoice]="projChoice"
-      [ngStyle]="{'background-color': projChoice.topTwenty ? 'yellow' : 'white'}">
+      *ngFor="let projChoice of projChoices | projChoicesFilter:term"
+      [projChoice]="projChoice">
       </insight-proj-projChoices-item>
     </div>
   </div>

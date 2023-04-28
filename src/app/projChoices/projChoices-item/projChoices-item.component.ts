@@ -6,6 +6,7 @@ import { ProjChoice } from '../projChoice.model';
   templateUrl: './projChoices-item.component.html',
   styleUrls: ['./projChoices-item.component.css']
 })
+
 export class ProjChoicesItemComponent implements OnInit {
   @Input() projChoice!: ProjChoice;
 

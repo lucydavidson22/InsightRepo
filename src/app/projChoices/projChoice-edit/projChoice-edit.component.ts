@@ -46,7 +46,7 @@ export class ProjChoiceEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm){
     const value = form.value;
     // console.log(value.name, value.id);
-    const newProjChoice = new ProjChoice('0', value.name, value.topTwenty);
+    const newProjChoice = new ProjChoice('0', value.name, value.proposedBy, value.status);
                                     //could an error be here because it expects a value.id
     if(this.editMode){
       this.projChoiceService.updateProjChoice(this.originalProjChoice, newProjChoice)

@@ -1,7 +1,13 @@
 <a style="cursor: pointer;"
   [routerLink]="[projChoice.id]"
   class="list-group-item clearfix projChoiceDiv"
-  routerLinkActive="active">
-    <!-- Display projChoice name here -->
+  routerLinkActive="active"
+  [ngStyle]="{
+    'background-color': (projChoice.status === 'backup' ? '#FFC387' : 
+                         (projChoice.status === 'topTwenty' ? '#9BFFC7' :
+                          (projChoice.status === 'underConsideration' ? 'transparent' :
+                           (projChoice.status === 'notUnderConsideration' ? '#CCCCCC' : ''))))
+  }"
+  >
     {{ projChoice?.name }}
 </a>

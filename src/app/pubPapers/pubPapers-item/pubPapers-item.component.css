@@ -11,3 +11,11 @@
   float: left;
   padding: .25rem
 }
+
+.list-group-item.clearfix.publicationDiv.active{
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  border: 0.5rem outset #32D2FF;
+  text-align: center;
+}

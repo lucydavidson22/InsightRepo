@@ -58,7 +58,8 @@ app.use((req, res, next) => {
 
 
 // establish a connection to the mongo database
-mongoose.connect('mongodb+srv://Davidson:6erYFFMgI4qWRNod@clustercms.nn6yu.mongodb.net/InsightProjDB?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://Davidson:6erYFFMgI4qWRNod@clustercms.nn6yu.mongodb.net/InsightProjDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://lucydavidson:Ke0PP6c0skab7Ms3@cluster0.vi6kbmc.mongodb.net/InsightTheraDB?retryWrites=true&w=majority',
   { useNewUrlParser: true }, (err, res) => {
     if (err) {
       console.log('Connection failed: ' + err);

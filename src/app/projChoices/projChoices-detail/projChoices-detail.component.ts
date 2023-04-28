@@ -25,7 +25,6 @@ export class ProjChoicesDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
-        // let parseId = parseInt(this.id);
         this.projChoice = this.projChoiceService.getProjChoice(this.id);
       }
     )

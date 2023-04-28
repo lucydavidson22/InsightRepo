@@ -1,13 +1,51 @@
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 
-  .pad-left-right{
-    padding-left:1rem;
-    padding-right:1rem;
-  }
+.pad-left-right{
+  padding-left:1rem;
+  padding-right:1rem;
+}
 
-  .btn{
-    word-break: break-word;
-  }
+.btn{
+  word-break: break-word;
+}
+
+.legend {
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+.backup-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #FFC387;
+  margin-right: 5px;
+}
+
+.topTwenty-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #9BFFC7;
+  margin-right: 5px;
+}
+
+.underConsideration-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+.notUnderConsideration-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #CCCCCC;
+  margin-right: 5px;
+}
+

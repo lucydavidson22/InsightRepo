@@ -12,6 +12,9 @@ import { ProjChoicesDetailComponent } from "./projChoices/projChoices-detail/pro
 import { PubPaperEditComponent } from "./pubPapers/pubPaper-edit/pubPaper-edit.component";
 import { PubPapersDetailComponent } from "./pubPapers/pubPapers-detail/pubPapers-detail.component";
 import { PubPapersComponent } from "./pubPapers/pubPapers.component";
+import { AuthComponent } from "./auth/auth.component";
+import { LoginComponent } from "./auth/login/login.component";
+import { SignupComponent } from "./auth/signup/signup.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/documents', pathMatch: 'full'},
@@ -30,7 +33,10 @@ const appRoutes: Routes = [
     {path: ':id', component: ProjChoicesDetailComponent},
     {path: ':id/edit', component: ProjChoiceEditComponent}
   ]},
-  {path: '**', component: DocumentsComponent}
+  { path: 'auth', component: AuthComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent},
+  { path: '**', component: DocumentsComponent}
 ];
 
 @NgModule({

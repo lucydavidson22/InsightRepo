@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header.component';
+import { HeaderComponent } from './header/header.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { DndModule } from 'ng2-dnd';
@@ -29,29 +29,41 @@ import { PubPapersDetailComponent } from './pubPapers/pubPapers-detail/pubPapers
 import { PubPapersItemComponent } from './pubPapers/pubPapers-item/pubPapers-item.component';
 import { PubPapersListComponent } from './pubPapers/pubPapers-list/pubPapers-list.component';
 import { PubPapersFilterPipe } from './pubPapers/pubPapers-filter.pipe';
+import { AuthComponent } from './auth/auth.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+
     DocumentsComponent,
     DocumentsListComponent,
     DocumentsItemComponent,
     DocumentsDetailComponent,
     DocumentEditComponent,
     DocumentsFilterPipe,
+
     ProjChoicesComponent,
-    ProjChoiceEditComponent,
-    ProjChoicesDetailComponent,
-    ProjChoicesItemComponent,
     ProjChoicesListComponent,
+    ProjChoicesItemComponent,
+    ProjChoicesDetailComponent,
+    ProjChoiceEditComponent,
+    ProjChoicesFilterPipe,
+
     PubPapersComponent,
-    PubPaperEditComponent,
-    PubPapersDetailComponent,
-    PubPapersItemComponent,
     PubPapersListComponent,
+    PubPapersItemComponent,
+    PubPapersDetailComponent,
+    PubPaperEditComponent,
     PubPapersFilterPipe,
+
+    AuthComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

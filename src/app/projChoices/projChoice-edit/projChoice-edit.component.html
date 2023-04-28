@@ -19,10 +19,46 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
+          <label for="proposedBy">Proposed By:</label>
+          <input
+            type="text"
+            id="proposedBy"
+            class="form-control"
+            size="150"
+            max="255"
+            name="proposedBy"
+            [ngModel]=projChoice?.proposedBy
+            #proposedBy="ngModel">
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-sm-12 form-group">
           <input type="checkbox" name="topTwenty" [(ngModel)]="projChoice.topTwenty">
           <label for="topTwenty">Top Twenty</label>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <input type="checkbox" name="backup" [(ngModel)]="projChoice.backup">
+          <label for="backup">Backup</label>
+        </div>
+      </div> -->
+
+
+      <p>Project Status:</p>
+      <input type="radio" id="topTwenty" name="status" value="topTwenty" [(ngModel)]="projChoice.status">
+      <label for="topTwenty">Top Twenty</label><br>
+      <input type="radio" id="backup" name="status" value="backup" [(ngModel)]="projChoice.status">
+      <label for="backup">Backup</label><br>  
+      <input type="radio" id="underConsideration" name="status" value="underConsideration" [(ngModel)]="projChoice.status">
+      <label for="underConsideration">Under Consideration</label><br>
+      <input type="radio" id="notUnderConsideration" name="status" value="notUnderConsideration" [(ngModel)]="projChoice.status">
+      <label for="notUnderConsideration">No Longer Under Consideration</label><br>
+
+
+
 
       <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
         The and Project Name is a required field.
@@ -38,4 +74,3 @@
 
   </div>
 </div>
-

@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+      <form id="login-edit" (submit)="onSignup(f)" #f="ngForm">
+        <h3>Sign Up Here</h3>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="username">Email:</label>
+            <input 
+            type="email" 
+            name="email" 
+            ngModel 
+            #emailInput="ngModel" 
+            class="form-control" 
+            required 
+            email
+            [ngClass]="{'border-red': emailInput.invalid && (emailInput.dirty || emailInput.touched)}">
+            <mat-error *ngIf="emailInput.invalid && emailInput.touched">Please enter a valid email.</mat-error>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="password">Password:</label>
+            <input 
+            type="text" 
+            name="password" 
+            ngModel 
+            #passwordInput="ngModel" 
+            class="form-control" 
+            required
+            password
+            minlength="6"
+            [ngClass]="{'border-red': passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)}" >
+            <mat-error *ngIf="!passwordInput.valid && passwordInput.touched">Please enter a valid password.</mat-error>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <span class="pull-left btn btn-toolbar signupbtn" [routerLink]="['/login']">Have an account? Login Here</span>
+            <div class="row pad-left-right">
+              <ul class="pull-right loginbtn">
+                <button class="btn btn-primary" [routerLink]="['/signup']">Sign Up</button>
+            </ul>
+            </div>
+          </div>
+        </div>
+  
+      </form>
+  
+    </div>
+</div>

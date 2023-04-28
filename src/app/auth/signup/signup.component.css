@@ -1,0 +1,26 @@
+.panel{
+    width: 1000px;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+  }
+     
+  .loginbtn{
+    padding-right: 20px
+  }
+     
+  .signupbtn{
+      color: blue;
+  }
+  
+  .border-red {
+    border: 1px solid red;
+  }
+  
+  .alert.alert-danger{
+    margin-top: 30px;
+  }
+    
+  .red{
+    color:red;
+  }

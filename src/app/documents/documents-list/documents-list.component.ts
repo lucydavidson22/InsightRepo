@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
-import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'insight-proj-documents-list',

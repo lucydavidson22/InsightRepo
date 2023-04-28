@@ -15,8 +15,10 @@ export class ProjChoicesFilterPipe implements PipeTransform {
       filteredProjChoices = projChoices.filter(
         (projChoice: ProjChoice) => {
           const name = projChoice.name.toLowerCase();
+          const status = projChoice.status.toLowerCase();
+          const proposedBy = projChoice.proposedBy ? projChoice.proposedBy.toLowerCase() : '';
           const termLowerCase = term.toLowerCase();
-          return name.includes(termLowerCase) ;
+          return name.includes(termLowerCase) || status.includes(termLowerCase) || proposedBy.includes(termLowerCase);
         }
       );
     }
@@ -24,11 +26,10 @@ export class ProjChoicesFilterPipe implements PipeTransform {
       const noProjChoicesFound: ProjChoice = {
         name: "No projChoices found",
         id: '',
-        topTwenty: false
+        proposedBy: '',
+        status: 'underConsideration'
       };
       return [noProjChoicesFound];
-      // return [{ message: "No projChoices found"}];
-      // return projChoices;
     }
     return filteredProjChoices;
   }

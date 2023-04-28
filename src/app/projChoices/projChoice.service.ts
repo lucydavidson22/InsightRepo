@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { ProjChoice } from './projChoice.model';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import * as XLSX from 'xlsx';
+
 
 
 @Injectable({
@@ -34,8 +34,8 @@ export class ProjChoiceService {
          this.projChoices = projChoices;
          this.maxProjChoiceId = this.getMaxId(); 
          projChoices.sort((a, b) => { 
-           if(a.id > b.id){ return 1; }
-           if(a.id < b.id){ return -1; }
+           if(a.status < b.status){ return 1; }
+           if(a.status > b.status){ return -1; }
            else { return 0; }
           });
             let projChoicesListClone = this.projChoices.slice();

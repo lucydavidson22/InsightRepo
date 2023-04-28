@@ -15,14 +15,15 @@ export class PubPapersFilterPipe implements PipeTransform {
       filteredPubPapers = pubPapers.filter(
         (pubPaper: PubPaper) => {
           const name = pubPaper.name.toLowerCase();
-          const year = pubPaper.year.toLowerCase();
-          const pub = pubPaper.pub.toLowerCase();
-          const cat = pubPaper.cat.toLowerCase();
-          const projDesc = pubPaper.projDesc.toLowerCase();
-          const profPage = pubPaper.profPage.toLowerCase();
-          const topic = pubPaper.topic.toLowerCase();
+          const year = pubPaper.year ? pubPaper.year.toLowerCase() : '';
+          const pub = pubPaper.pub ? pubPaper.pub.toLowerCase() : '';
+          const cat = pubPaper.cat ? pubPaper.cat.toLowerCase() : '';
+          const projDesc = pubPaper.projDesc ? pubPaper.projDesc.toLowerCase() : '';
+          const profPage = pubPaper.profPage ? pubPaper.profPage.toLowerCase() : '';
+          const topic = pubPaper.topic ? pubPaper.topic.toLowerCase() : '';
+          const citation = pubPaper.citation ? pubPaper.citation.toLowerCase() : '';
           const termLowerCase = term.toLowerCase();
-          return name.includes(termLowerCase) || year.includes(termLowerCase) || pub.includes(termLowerCase) || cat.includes(termLowerCase) || projDesc.includes(termLowerCase) || profPage.includes(termLowerCase) || topic.includes(termLowerCase);
+          return name.includes(termLowerCase) || year.includes(termLowerCase) || pub.includes(termLowerCase) || cat.includes(termLowerCase) || projDesc.includes(termLowerCase) || profPage.includes(termLowerCase) || topic.includes(termLowerCase) || citation.includes(termLowerCase);
         }
       );
     }

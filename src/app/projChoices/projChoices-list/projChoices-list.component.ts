@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProjChoice } from '../projChoice.model';
 import { ProjChoiceService } from '../projChoice.service';
-import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'insight-proj-projChoices-list',
