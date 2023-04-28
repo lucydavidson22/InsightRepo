@@ -62,7 +62,7 @@ import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
 
     AuthComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

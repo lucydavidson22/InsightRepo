@@ -14,8 +14,8 @@ export class ProjChoicesFilterPipe implements PipeTransform {
     if (term && term.length > 0) {
       filteredProjChoices = projChoices.filter(
         (projChoice: ProjChoice) => {
-          const name = projChoice.name.toLowerCase();
-          const status = projChoice.status.toLowerCase();
+          const name = projChoice.name ? projChoice.name.toLowerCase(): '';
+          const status = projChoice.status ? projChoice.status.toLowerCase() : '';
           const proposedBy = projChoice.proposedBy ? projChoice.proposedBy.toLowerCase() : '';
           const termLowerCase = term.toLowerCase();
           return name.includes(termLowerCase) || status.includes(termLowerCase) || proposedBy.includes(termLowerCase);

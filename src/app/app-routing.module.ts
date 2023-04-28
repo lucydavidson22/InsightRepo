@@ -15,6 +15,7 @@ import { PubPapersComponent } from "./pubPapers/pubPapers.component";
 import { AuthComponent } from "./auth/auth.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
+import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/documents', pathMatch: 'full'},
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
     {path: ':id', component: DocumentsDetailComponent},
     {path: ':id/edit', component: DocumentEditComponent}
   ]},
-  {path: 'pubPapers', component: PubPapersComponent, children: [
+  {path: 'pubPapers', component: PubPapersComponent, canActivate: [AuthGuard], children: [
     {path: 'new', component: PubPaperEditComponent},
     {path: ':id', component: PubPapersDetailComponent},
     {path: ':id/edit', component: PubPaperEditComponent}
@@ -36,12 +37,13 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
-  { path: '**', component: DocumentsComponent}
+  // { path: '**', component: DocumentsComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule{
 

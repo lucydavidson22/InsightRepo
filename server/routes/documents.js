@@ -17,7 +17,9 @@ router.get("/", (req, res, next) => {
   });
 });
 
-router.post('/', (req, res, next) => {
+router.post(
+  '/', 
+(req, res, next) => {
   console.log('documents posted?');
   const maxDocumentId = sequenceGenerator.nextId("documents");
 

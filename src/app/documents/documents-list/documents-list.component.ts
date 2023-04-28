@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'insight-proj-documents-list',
@@ -12,9 +13,13 @@ export class DocumentsListComponent implements OnInit, OnDestroy {
   documents: Document[] = [];
   private subscription: Subscription;
   term:string;
+  userIsAuthenticated = false;
+  private authStatusSub: Subscription;
 
-  constructor(private documentService: DocumentService,
-              ) { }
+  constructor(
+    private documentService: DocumentService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.documentService.documentChangedEvent.subscribe(
@@ -26,6 +31,12 @@ export class DocumentsListComponent implements OnInit, OnDestroy {
     this.subscription = this.documentService.documentListChangedEvent.subscribe(documentList => {
       this.documents = documentList;
     });
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authStatusSub = this.authService
+    .getAuthStatusListener()
+    .subscribe(isAuthenticated => {
+      this.userIsAuthenticated = isAuthenticated;
+    })
   }
 
   ngOnDestroy(): void {

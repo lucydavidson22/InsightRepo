@@ -13,7 +13,7 @@ let index = require('./server/routes/app');
 const documentsRoutes = require('./server/routes/documents');
 const pubPapersRoutes = require('./server/routes/pubPapers');
 const projChoicesRoutes = require('./server/routes/projChoices');
-const userRoutes = require('./server/routes/users');
+const userRoutes = require('./server/routes/user');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   );
   res.setHeader(
     'Access-Control-Allow-Methods',

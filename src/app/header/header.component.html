@@ -14,9 +14,9 @@
   
         <div class="collapse navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a [routerLink]="['/documents']">Marketing Collateral Items</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/projChoices']">Team's Top Project Choices</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/pubPapers']">Publications</a></li>
+                <li *ngIf="userIsAuthenticated" routerLinkActive="active"><a [routerLink]="['/documents']">Marketing Collateral Items</a></li>
+                <li *ngIf="userIsAuthenticated" routerLinkActive="active"><a [routerLink]="['/projChoices']">Team's Top Project Choices</a></li>
+                <li *ngIf="userIsAuthenticated" routerLinkActive="active"><a [routerLink]="['/pubPapers']">Publications</a></li>
             </ul>
   
             <ul class="nav navbar-nav navbar-right">
