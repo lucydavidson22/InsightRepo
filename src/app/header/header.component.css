@@ -1,0 +1,9 @@
+button {
+    background: none!important;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+}

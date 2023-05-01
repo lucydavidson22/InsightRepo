@@ -18,26 +18,26 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/documents', pathMatch: 'full'},
-  {path: 'documents', component: DocumentsComponent, children: [
-    {path: 'new', component: DocumentEditComponent},
-    {path: ':id', component: DocumentsDetailComponent},
-    {path: ':id/edit', component: DocumentEditComponent}
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'documents', component: DocumentsComponent, canActivate: [AuthGuard], children: [
+    {path: 'new', component: DocumentEditComponent, canActivate: [AuthGuard]},
+    {path: ':id', component: DocumentsDetailComponent, canActivate: [AuthGuard]},
+    {path: ':id/edit', component: DocumentEditComponent, canActivate: [AuthGuard]}
   ]},
   {path: 'pubPapers', component: PubPapersComponent, canActivate: [AuthGuard], children: [
-    {path: 'new', component: PubPaperEditComponent},
-    {path: ':id', component: PubPapersDetailComponent},
-    {path: ':id/edit', component: PubPaperEditComponent}
+    {path: 'new', component: PubPaperEditComponent, canActivate: [AuthGuard]},
+    {path: ':id', component: PubPapersDetailComponent, canActivate: [AuthGuard]},
+    {path: ':id/edit', component: PubPaperEditComponent, canActivate: [AuthGuard]}
   ]},
-  {path: 'projChoices', component: ProjChoicesComponent, children: [
-    {path: 'new', component: ProjChoiceEditComponent},
-    {path: ':id', component: ProjChoicesDetailComponent},
-    {path: ':id/edit', component: ProjChoiceEditComponent}
+  {path: 'projChoices', component: ProjChoicesComponent, canActivate: [AuthGuard], children: [
+    {path: 'new', component: ProjChoiceEditComponent, canActivate: [AuthGuard]},
+    {path: ':id', component: ProjChoicesDetailComponent, canActivate: [AuthGuard]},
+    {path: ':id/edit', component: ProjChoiceEditComponent, canActivate: [AuthGuard]}
   ]},
   { path: 'auth', component: AuthComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
-  // { path: '**', component: DocumentsComponent}
+  { path: '**', component: LoginComponent}
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { DocumentsComponent } from './documents/documents.component';
 import { DocumentsDetailComponent } from './documents/documents-detail/documents-detail.component';
@@ -32,6 +32,7 @@ import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

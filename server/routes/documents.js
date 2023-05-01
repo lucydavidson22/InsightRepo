@@ -1,5 +1,6 @@
 const sequenceGenerator = require('./sequenceGenerator');
 const Document = require('../models/document');
+const checkAuth = require("../middleware/check-auth")
 
 var express = require('express');
 var router = express.Router();
@@ -18,8 +19,8 @@ router.get("/", (req, res, next) => {
 });
 
 router.post(
-  '/', 
-(req, res, next) => {
+  '/', checkAuth,
+  (req, res, next) => {
   console.log('documents posted?');
   const maxDocumentId = sequenceGenerator.nextId("documents");
 
@@ -53,7 +54,7 @@ router.post(
     });
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', checkAuth, (req, res, next) => {
   Document.findOne({ id: req.params.id })
     .then(document => {
       document.name = req.body.name;
@@ -89,7 +90,7 @@ router.put('/:id', (req, res, next) => {
     });
 });
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", checkAuth, (req, res, next) => {
   Document.findOne({ id: req.params.id })
     .then(document => {
       Document.deleteOne({ id: req.params.id })

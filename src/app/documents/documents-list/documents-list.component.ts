@@ -41,6 +41,7 @@ export class DocumentsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
+      this.authStatusSub.unsubscribe();
   }
 
   search(value:string){
