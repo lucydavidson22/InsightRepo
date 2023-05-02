@@ -13,7 +13,8 @@ const documentSchema = mongoose.Schema({
    description: { type: String },
    profileStartedBy: { type:String },
    profileStatus: { type:String },
-   children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Document' }]
+   // creator: { type:mongoose.Schema.Types.ObjectId, ref: 'Document', required: true},
+   // children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Document' }]
 });
 
 module.exports = mongoose.model('Document', documentSchema);

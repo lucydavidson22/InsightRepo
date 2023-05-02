@@ -36,7 +36,8 @@ router.post(
     tangibleItems: req.body.tangibleItems,
     description: req.body.description,
     profileStartedBy: req.body.profileStartedBy,
-    profileStatus: req.body.profileStatus
+    profileStatus: req.body.profileStatus,
+    // creator: req.userData.userId
   });
 
   document.save()
