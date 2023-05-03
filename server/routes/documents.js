@@ -37,7 +37,7 @@ router.post(
     description: req.body.description,
     profileStartedBy: req.body.profileStartedBy,
     profileStatus: req.body.profileStatus,
-    // creator: req.userData.userId
+    creator: req.userData.userId
   });
 
   document.save()
@@ -69,12 +69,19 @@ router.put('/:id', checkAuth, (req, res, next) => {
       document.description = req.body.description;
       document.profileStartedBy = req.body.profileStartedBy;
       document.profileStatus = req.body.profileStatus;
+      document.creator = req.userData.userId;
 
-      Document.updateOne({ id: req.params.id }, document)
+      Document.updateOne({ id: req.params.id, creator: req.userData.userId }, document)
         .then(result => {
+          console.log(result);
           res.status(204).json({
             message: 'Document updated successfully'
           })
+          if(result.nModified > 0){
+            res.status(200).json({ message: "Update successful!"});
+          } else {
+            res.status(401).json({ message: "Not authorized!"});
+          }
         })
         .catch(error => {
            res.status(500).json({
@@ -88,17 +95,24 @@ router.put('/:id', checkAuth, (req, res, next) => {
         message: 'Document not found.',
         error: { document: 'Document not found'}
       });
-    });
+    })
+
 });
 
 router.delete("/:id", checkAuth, (req, res, next) => {
   Document.findOne({ id: req.params.id })
     .then(document => {
-      Document.deleteOne({ id: req.params.id })
+      Document.deleteOne({ id: req.params.id, creator: req.userData.userId })
         .then(result => {
+          console.log(result);
           res.status(204).json({
             message: "Document deleted successfully"
           });
+          if(result.nModified > 0){
+            res.status(200).json({ message: "Deletion successful!"});
+          } else {
+            res.status(401).json({ message: "Not authorized!"});
+          }
         })
         .catch(error => {
            res.status(500).json({

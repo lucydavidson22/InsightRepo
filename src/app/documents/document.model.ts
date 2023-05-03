@@ -11,6 +11,7 @@ export class Document{
       public tangibleItems:string,
       public description:string,
       public profileStartedBy:string,
-      public profileStatus:string
+      public profileStatus:string,
+      creator: string
       ){}
 }

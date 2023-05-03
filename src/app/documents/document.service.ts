@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Document } from './document.model';
-// import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -25,12 +24,12 @@ export class DocumentService {
    }
 
    getDocumentsHttp(){
-    //  console.log('documentshttp entered');
     return this.http
      .get<Document[]>('http://localhost:3000/documents')
      .subscribe(
        //success method
        (documents:Document[]) => {
+        console.log('documents', documents);
          this.documents = documents;    //Assign the array of documents received to the documents property.
          this.maxDocumentId = this.getMaxId();  //get the maximum value used for the id property in the document list, assign the value returned to the maxDocumentId
          documents.sort((a, b) => {    //Sort the list of documents by name using the sort() JavaScript array method.

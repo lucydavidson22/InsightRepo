@@ -11,17 +11,16 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class DocumentsListComponent implements OnInit, OnDestroy {
   documents: Document[] = [];
-  private subscription: Subscription;
   term:string;
   userIsAuthenticated = false;
+  userId: string;
+  private subscription: Subscription;
   private authStatusSub: Subscription;
 
-  constructor(
-    private documentService: DocumentService,
-    private authService: AuthService
-  ) { }
+  constructor(  private documentService: DocumentService, private authService: AuthService  ) { }
 
   ngOnInit(): void {
+    this.userId = this.authService.getUserId();
     this.documentService.documentChangedEvent.subscribe(
       (document:Document[]) => {
         this.documents = document;
@@ -36,6 +35,7 @@ export class DocumentsListComponent implements OnInit, OnDestroy {
     .getAuthStatusListener()
     .subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
+      this.userId = this.authService.getUserId()
     })
   }
 
