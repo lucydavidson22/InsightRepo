@@ -21,6 +21,7 @@ import { ProjChoiceEditComponent } from './projChoices/projChoice-edit/projChoic
 import { ProjChoicesDetailComponent } from './projChoices/projChoices-detail/projChoices-detail.component';
 import { ProjChoicesItemComponent } from './projChoices/projChoices-item/projChoices-item.component';
 import { ProjChoicesListComponent } from './projChoices/projChoices-list/projChoices-list.component';
+import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
 
 import { PubPapersComponent } from './pubPapers/pubPapers.component';
 import { PubPaperEditComponent } from './pubPapers/pubPaper-edit/pubPaper-edit.component';
@@ -28,11 +29,12 @@ import { PubPapersDetailComponent } from './pubPapers/pubPapers-detail/pubPapers
 import { PubPapersItemComponent } from './pubPapers/pubPapers-item/pubPapers-item.component';
 import { PubPapersListComponent } from './pubPapers/pubPapers-list/pubPapers-list.component';
 import { PubPapersFilterPipe } from './pubPapers/pubPapers-filter.pipe';
+
 import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
-import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
 
 
 @NgModule({
@@ -73,7 +75,10 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
