@@ -51,7 +51,8 @@ export class DocumentsFilterPipe implements PipeTransform {
         tangibleItems:'',
         description: '',
         profileStartedBy: '',
-        profileStatus: ''
+        profileStatus: '',
+        creator: ''
       };
       return [noDocumentsFound];
       // return [{ message: "No documents found"}];

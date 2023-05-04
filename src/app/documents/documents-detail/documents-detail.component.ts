@@ -47,7 +47,7 @@ export class DocumentsDetailComponent implements OnInit {
     .getAuthStatusListener()
     .subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
-      this.userId = this.authService.getUserId()
+      this.userId = this.authService.getUserId();
     })
 
   }

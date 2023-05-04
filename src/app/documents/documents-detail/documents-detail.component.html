@@ -5,7 +5,7 @@
       <div class="row pull-right margin-left-right">
         <a (click)="onView()" class="btn btn-primary" *ngIf="document?.url">View</a>
         <a [routerLink]="['edit']" class="btn btn-info" *ngIf="userIsAuthenticated && userId === document?.creator" >Edit</a>
-        <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+        <a (click)="onDelete()" class="btn btn-danger" *ngIf="userIsAuthenticated && userId === document?.creator" >Delete</a>
       </div>
     </div>
   </div>

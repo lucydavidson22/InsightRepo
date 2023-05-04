@@ -74,11 +74,12 @@ router.put('/:id', checkAuth, (req, res, next) => {
       Document.updateOne({ id: req.params.id, creator: req.userData.userId }, document)
         .then(result => {
           console.log(result);
-          res.status(204).json({
-            message: 'Document updated successfully'
-          })
-          if(result.nModified > 0){
+          // res.status(204).json({
+          //   message: 'Document updated successfully'
+          // })
+          if(result.modifiedCount > 0){
             res.status(200).json({ message: "Update successful!"});
+            console.log("the user updated their project!");
           } else {
             res.status(401).json({ message: "Not authorized!"});
           }
@@ -108,11 +109,11 @@ router.delete("/:id", checkAuth, (req, res, next) => {
           res.status(204).json({
             message: "Document deleted successfully"
           });
-          if(result.nModified > 0){
-            res.status(200).json({ message: "Deletion successful!"});
-          } else {
-            res.status(401).json({ message: "Not authorized!"});
-          }
+          // if(result.modifiedCount > 0){
+          //   res.status(200).json({ message: "Deletion successful!"});
+          // } else {
+          //   res.status(401).json({ message: "Not authorized!"});
+          // }
         })
         .catch(error => {
            res.status(500).json({

@@ -12,6 +12,6 @@ export class Document{
       public description:string,
       public profileStartedBy:string,
       public profileStatus:string,
-      creator: string
+      public creator: string
       ){}
 }
