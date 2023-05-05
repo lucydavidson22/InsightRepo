@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -34,9 +36,9 @@ import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
+
 import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
-import { MatDialogModule } from "@angular/material/dialog"
 
 
 @NgModule({
@@ -72,9 +74,10 @@ import { MatDialogModule } from "@angular/material/dialog"
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
     RouterModule,
     MatDialogModule,
     HttpClientModule,

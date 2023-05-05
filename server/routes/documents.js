@@ -15,6 +15,11 @@ router.get("/", (req, res, next) => {
       })
     }
     return res.status(200).json(documents);
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: "Fetching posts failed"
+    });
   });
 });
 
@@ -49,7 +54,7 @@ router.post(
     })
     .catch(error => {
        res.status(500).json({
-          message: 'An error occurred',
+          message: 'Creating a post failed!',
           error: error
         });
     });
@@ -86,7 +91,7 @@ router.put('/:id', checkAuth, (req, res, next) => {
         })
         .catch(error => {
            res.status(500).json({
-           message: 'An error occurred',
+           message: "Couldn't update post!",
            error: error
          });
         });
@@ -117,7 +122,7 @@ router.delete("/:id", checkAuth, (req, res, next) => {
         })
         .catch(error => {
            res.status(500).json({
-           message: 'An error occurred',
+           message: 'Deletion failed',
            error: error
          });
         })

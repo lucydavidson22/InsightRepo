@@ -2,30 +2,24 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from "@a
 import { catchError } from "rxjs/operators";
 import { throwError } from "rxjs";
 import { Injectable } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { ErrorComponent } from "./error/error.component";
-import { MatDialog } from "@angular/material/dialog";    //<-- this is if the mat dialog ever starts working
+    
 
-@Injectable()
-export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private dialog: MatDialog) {}                //<-- this is if the mat dialog ever starts working
+@Injectable()                                                       // <-- this is for injecting a service
+export class ErrorInterceptor implements HttpInterceptor {          
+    constructor(public dialog: MatDialog) {}                       // <-- injecting the dialog service here            
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {        
         return next.handle(req).pipe(
-            catchError((error : HttpErrorResponse) => {
+            catchError((error : HttpErrorResponse) => {             //<-- catchError is the operator that allows us to handle errors emitted in this stream
                 let errorMessage = "An unknown error occurred!";
                 if(error.error.message){
-                    errorMessage = error.error.message;
+                    errorMessage = error.error.message
                 }
-                this.dialog.open(ErrorComponent, { data: { message: errorMessage }});             //<-- this is if the mat dialog ever starts working
-                // alert( errorMessage );
+                this.dialog.open(ErrorComponent, {data: {message: errorMessage}});
                 return throwError(error);
             })
         );
     }
 }
-   
-   
-   
-   
-   
-   
