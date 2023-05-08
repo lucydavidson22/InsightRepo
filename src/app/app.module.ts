@@ -11,27 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import { DocumentsComponent } from './documents/documents.component';
-import { DocumentsDetailComponent } from './documents/documents-detail/documents-detail.component';
-import { DocumentsItemComponent } from './documents/documents-item/documents-item.component';
-import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
-import { DocumentsListComponent } from './documents/documents-list/documents-list.component';
-import { DocumentsFilterPipe } from './documents/documents-filter.pipe';
-
-import { ProjChoicesComponent } from './projChoices/projChoices.component';
-import { ProjChoiceEditComponent } from './projChoices/projChoice-edit/projChoice-edit.component';
-import { ProjChoicesDetailComponent } from './projChoices/projChoices-detail/projChoices-detail.component';
-import { ProjChoicesItemComponent } from './projChoices/projChoices-item/projChoices-item.component';
-import { ProjChoicesListComponent } from './projChoices/projChoices-list/projChoices-list.component';
-import { ProjChoicesFilterPipe } from './projChoices/projChoices-filter.pipe';
-
-import { PubPapersComponent } from './pubPapers/pubPapers.component';
-import { PubPaperEditComponent } from './pubPapers/pubPaper-edit/pubPaper-edit.component';
-import { PubPapersDetailComponent } from './pubPapers/pubPapers-detail/pubPapers-detail.component';
-import { PubPapersItemComponent } from './pubPapers/pubPapers-item/pubPapers-item.component';
-import { PubPapersListComponent } from './pubPapers/pubPapers-list/pubPapers-list.component';
-import { PubPapersFilterPipe } from './pubPapers/pubPapers-filter.pipe';
-
 import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -40,32 +19,15 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 
+import { DocumentsModule } from './documents/documents.module';
+import { ProjChoicesModule } from './projChoices/projChoices.module';
+import { PubPapersModule } from './pubPapers/pubPapers.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-
-    DocumentsComponent,
-    DocumentsListComponent,
-    DocumentsItemComponent,
-    DocumentsDetailComponent,
-    DocumentEditComponent,
-    DocumentsFilterPipe,
-
-    ProjChoicesComponent,
-    ProjChoicesListComponent,
-    ProjChoicesItemComponent,
-    ProjChoicesDetailComponent,
-    ProjChoiceEditComponent,
-    ProjChoicesFilterPipe,
-
-    PubPapersComponent,
-    PubPapersListComponent,
-    PubPapersItemComponent,
-    PubPapersDetailComponent,
-    PubPaperEditComponent,
-    PubPapersFilterPipe,
 
     AuthComponent,
     SignupComponent,
@@ -81,6 +43,9 @@ import { ErrorComponent } from './error/error.component';
     RouterModule,
     MatDialogModule,
     HttpClientModule,
+    DocumentsModule,
+    ProjChoicesModule,
+    PubPapersModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
