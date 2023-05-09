@@ -3,7 +3,9 @@ import { ProjChoice } from './projChoice.model';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 
+const BACKEND_URL = environment.siteUrl + '/projChoices';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +28,11 @@ export class ProjChoiceService {
    getProjChoicesHttp(){
      console.log('projChoiceshttp entered');
     return this.http
-     .get<ProjChoice[]>('http://localhost:3000/projChoices')
+     .get<ProjChoice[]>(BACKEND_URL)
      .subscribe(
        //success method
        (projChoices:ProjChoice[]) => {
-         console.log('projChoices', projChoices);
+        //  console.log('projChoices', projChoices);
          this.projChoices = projChoices;
          this.maxProjChoiceId = this.getMaxId(); 
          projChoices.sort((a, b) => { 
@@ -79,7 +81,7 @@ export class ProjChoiceService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // add to database
-    this.http.post<{ message: string, projChoice: ProjChoice }>('http://localhost:3000/projChoices',
+    this.http.post<{ message: string, projChoice: ProjChoice }>(BACKEND_URL,
       projChoice,
       { headers: headers })
       .subscribe(
@@ -106,7 +108,7 @@ export class ProjChoiceService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // update database
-    this.http.put('http://localhost:3000/projChoices/' + originalProjChoice.id,
+    this.http.put(BACKEND_URL + '/' + originalProjChoice.id,
       newProjChoice, { headers: headers })
       .subscribe(
         () => {
@@ -128,7 +130,7 @@ export class ProjChoiceService {
     }
 
     // delete from database
-    this.http.delete('http://localhost:3000/projChoices/' + projChoice.id)
+    this.http.delete(BACKEND_URL + '/' + projChoice.id)
       .subscribe(
         () => {
           this.projChoices.splice(pos, 1);

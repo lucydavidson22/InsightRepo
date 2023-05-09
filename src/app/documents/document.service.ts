@@ -3,7 +3,9 @@ import { Document } from './document.model';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 
+const BACKEND_URL = environment.siteUrl + '/documents';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +27,11 @@ export class DocumentService {
 
    getDocumentsHttp(){
     return this.http
-     .get<Document[]>('http://localhost:3000/documents')
+     .get<Document[]>(BACKEND_URL)
      .subscribe(
        //success method
        (documents:Document[]) => {
-        console.log('documents', documents);
+        // console.log('documents', documents);
          this.documents = documents;    //Assign the array of documents received to the documents property.
          this.maxDocumentId = this.getMaxId();  //get the maximum value used for the id property in the document list, assign the value returned to the maxDocumentId
          documents.sort((a, b) => {    //Sort the list of documents by name using the sort() JavaScript array method.
@@ -79,7 +81,7 @@ export class DocumentService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // add to database
-    this.http.post<{ message: string, document: Document }>('http://localhost:3000/documents',
+    this.http.post<{ message: string, document: Document }>(BACKEND_URL,
       document,
       { headers: headers })
       .subscribe(
@@ -107,7 +109,7 @@ export class DocumentService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // update database
-    this.http.put('http://localhost:3000/documents/' + originalDocument.id,
+    this.http.put(BACKEND_URL +'/' + originalDocument.id,
       newDocument, { headers: headers })
       .subscribe(
         () => {
@@ -130,7 +132,7 @@ export class DocumentService {
     }
 
     // delete from database
-    this.http.delete('http://localhost:3000/documents/' + document.id)
+    this.http.delete(BACKEND_URL + '/' + document.id)
       .subscribe(
         () => {
           this.documents.splice(pos, 1);

@@ -24,8 +24,10 @@ router.post('/', (req, res, next) => {
   const projChoice = new ProjChoice({
     id: maxProjChoiceId,
     name: req.body.name,
-    topTwenty: req.body.topTwenty
+    proposedBy: req.body.proposedBy,
+    status: req.body.status
   });
+  console.log("projChoice, look for body status", projChoice);
 
   projChoice.save()
     .then(createdProjChoice => {
@@ -46,7 +48,8 @@ router.put('/:id', (req, res, next) => {
   ProjChoice.findOne({ id: req.params.id })
     .then(projChoice => {
       projChoice.name = req.body.name;
-      projChoice.topTwenty = req.body.topTwenty;
+      projChoice.proposedBy = req.body.proposedBy;
+      projChoice.status = req.body.status;
 
       ProjChoice.updateOne({ id: req.params.id }, projChoice)
         .then(result => {

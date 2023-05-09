@@ -1,4 +1,5 @@
-const Document = require("../models/document");
+const sequenceGenerator = require('../routes/sequenceGenerator');
+const Document = require('../models/document');
 
 exports.createDocument = (req, res, next) => {
     console.log('documents posted?');

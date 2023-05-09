@@ -28,7 +28,7 @@ export class PubPaperService {
      .subscribe(
        //success method
        (pubPapers:PubPaper[]) => {
-         console.log('pubPapers', pubPapers);
+        //  console.log('pubPapers', pubPapers);
          this.pubPapers = pubPapers;
          this.maxPubPaperId = this.getMaxId();
          pubPapers.sort((a, b) => {

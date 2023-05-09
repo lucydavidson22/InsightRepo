@@ -45,7 +45,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
     case 'projChoices':
       maxProjChoiceId++;
       updateObject = { maxProjChoiceId: maxProjChoiceId };
-      console.log('get the max id of pubpapers');
+      console.log('get the max id of projChoices');
       nextId = maxProjChoiceId;
       break;
     default:

@@ -32,22 +32,7 @@
         </div>
       </div>
 
-      <!-- <div class="row">
-        <div class="col-sm-12 form-group">
-          <input type="checkbox" name="topTwenty" [(ngModel)]="projChoice.topTwenty">
-          <label for="topTwenty">Top Twenty</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <input type="checkbox" name="backup" [(ngModel)]="projChoice.backup">
-          <label for="backup">Backup</label>
-        </div>
-      </div> -->
-
-
-      <p>Project Status:</p>
+      <!-- <p>Project Status:</p>
       <input type="radio" id="topTwenty" name="status" value="topTwenty" [(ngModel)]="projChoice.status">
       <label for="topTwenty">Top Twenty</label><br>
       <input type="radio" id="backup" name="status" value="backup" [(ngModel)]="projChoice.status">
@@ -55,8 +40,17 @@
       <input type="radio" id="underConsideration" name="status" value="underConsideration" [(ngModel)]="projChoice.status">
       <label for="underConsideration">Under Consideration</label><br>
       <input type="radio" id="notUnderConsideration" name="status" value="notUnderConsideration" [(ngModel)]="projChoice.status">
-      <label for="notUnderConsideration">No Longer Under Consideration</label><br>
+      <label for="notUnderConsideration">No Longer Under Consideration</label><br> -->
 
+<p>Project Status:</p>
+<input type="radio" id="topTwenty" name="status" value="topTwenty" [(ngModel)]="status">
+<label for="topTwenty">Top Twenty</label><br>
+<input type="radio" id="backup" name="status" value="backup" [(ngModel)]="status">
+<label for="backup">Backup</label><br>  
+<input type="radio" id="underConsideration" name="status" value="underConsideration" [(ngModel)]="status">
+<label for="underConsideration">Under Consideration</label><br>
+<input type="radio" id="notUnderConsideration" name="status" value="notUnderConsideration" [(ngModel)]="status">
+<label for="notUnderConsideration">No Longer Under Consideration</label><br>
 
 
 
@@ -69,8 +63,6 @@
           <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
         </div>
       </div>
-
     </form>
-
   </div>
 </div>

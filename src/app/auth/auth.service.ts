@@ -4,6 +4,10 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Router } from "@angular/router";
 
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.siteUrl + '/user';
+
 @Injectable({ providedIn: "root" })
 
 export class AuthService{
@@ -16,7 +20,7 @@ export class AuthService{
   constructor(private http: HttpClient, private router: Router){}
 
   getToken() {
-    console.log('authToken:', this.token)
+    // console.log('authToken:', this.token)
     return this.token;
   }
   
@@ -34,7 +38,7 @@ export class AuthService{
 
   createUser(email: string, password: string){
     const authData: AuthData = {email: email, password: password};
-    return this.http.post("http://localhost:3000/user/signup", authData)
+    return this.http.post(BACKEND_URL + "/signup", authData)
     .subscribe(() => {
       this.router.navigate["/"];
     }, error => {
@@ -45,7 +49,7 @@ export class AuthService{
   login(email:string, password: string){
     const authData: AuthData = {email: email, password: password};
     this.http
-    .post<{token:string; expiresIn: number, userId: string}>("http://localhost:3000/user/login", authData)
+    .post<{token:string; expiresIn: number, userId: string}>(BACKEND_URL + "/login", authData)
     .subscribe(response => {
       const token = response.token;
       this.token = token;
@@ -73,7 +77,7 @@ export class AuthService{
     }
     const now = new Date();
     const expiresIn = authInformation.expirationDate.getTime() - now.getTime();
-    console.log(authInformation, expiresIn);
+    // console.log(authInformation, expiresIn);
     if(expiresIn > 0){
       this.token = authInformation.token;
       this.isAuthenticated = true;
@@ -94,7 +98,7 @@ export class AuthService{
   }
 
   private setAuthTimer(duration: number){
-    console.log("Setting timer: " + duration);
+    // console.log("Setting timer: " + duration);
     this.tokenTimer = setTimeout(() => {
       this.logout();
     }, duration * 1000 );
