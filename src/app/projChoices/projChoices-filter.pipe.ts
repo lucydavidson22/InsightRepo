@@ -27,7 +27,8 @@ export class ProjChoicesFilterPipe implements PipeTransform {
         name: "No projChoices found",
         id: '',
         proposedBy: '',
-        status: 'underConsideration'
+        status: 'underConsideration',
+        creator: ''
       };
       return [noProjChoicesFound];
     }

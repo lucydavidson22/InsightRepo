@@ -24,7 +24,7 @@
           <div class="col-sm-12 form-group">
             <label for="password">Password:</label>
             <input 
-            type="password" 
+            type="{{ showPwd ? 'text' : 'password'}}" 
             name="password" 
             ngModel 
             #passwordInput="ngModel" 
@@ -33,6 +33,10 @@
             password
             minlength="6"
             [ngClass]="{'border-red': passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)}" >
+            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+              <i class="fa" [ngClass]="{'fa-eye': !showPwd, 'fa-eye-slash': showPwd }"></i>
+              {{showPwd ? 'Hide' : 'Show' }}
+            </button>
             <mat-error *ngIf="!passwordInput.valid && passwordInput.touched" class="red">Please enter a valid password.</mat-error>
           </div>
         </div>

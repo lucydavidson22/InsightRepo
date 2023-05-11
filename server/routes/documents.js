@@ -19,13 +19,13 @@ router.get("/", (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: "Fetching posts failed"
+        message: "Fetching documents failed"
       });
     });
   });
 
 // router.post('/', checkAuth, DocumentController.updateDocument);
-router.post('/', (req, res, next) => {
+router.post('/', checkAuth, (req, res, next) => {
     console.log('documents posted?');
     const maxDocumentId = sequenceGenerator.nextId("documents");
   
@@ -89,7 +89,7 @@ router.put('/:id', checkAuth, (req, res, next) => {
           })
           .catch(error => {
              res.status(500).json({
-             message: "Couldn't update post!",
+             message: "Couldn't update document!",
              error: error
            });
           });

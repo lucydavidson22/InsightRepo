@@ -3,6 +3,7 @@ export class ProjChoice{
     public id:string,
     public name:string,
     public proposedBy:string, 
-    public status: 'topTwenty' | 'backup' | 'underConsideration' | 'notUnderConsideration'
+    public status: 'topTwenty' | 'backup' | 'underConsideration' | 'notUnderConsideration',
+    public creator: string
       ){}
 }

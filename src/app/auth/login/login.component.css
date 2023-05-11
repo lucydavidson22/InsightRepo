@@ -1,26 +1,56 @@
-.panel{
-    width: 1000px;
-    max-width: 90%;
-    margin: auto;
-    display: block;
-   }
-   
-   .loginbtn{
-     padding-right: 20px
-   }
-   
-   .signupbtn{
-       color: blue;
-   }
-   
-   .border-red {
-     border: 1px solid red;
-   }
-   
-   .alert.alert-danger{
-     margin-top: 30px;
-   }
-   
-   .red{
-     color:red;
-   }
+.panel {
+  width: 1000px;
+  max-width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.loginbtn {
+  padding-right: 20px
+}
+
+.signupbtn {
+  color: blue;
+}
+
+.border-red {
+  border: 1px solid red;
+}
+
+.alert.alert-danger {
+  margin-top: 30px;
+}
+
+.red {
+  color: red;
+}
+
+.btn-outline-secondary{
+  box-shadow:inset 0px 4px 8px -1px #bbdaf7;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background-color:#79bbff;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:flex;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+  margin-top: 10px;
+	padding:6px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+
+.btn-outline-secondary:hover{
+  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+  background-color:#378de5;
+}
+
+.btn-outline-secondary:active {
+  position:relative;
+  top:1px;
+}
+
+.btn-outline-secondary:focus {
+  outline: none;
+}

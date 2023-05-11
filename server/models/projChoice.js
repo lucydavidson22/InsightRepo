@@ -5,7 +5,7 @@ const projChoiceSchema = mongoose.Schema({
    name: { type: String, required: true },
    proposedBy: { type: String },
    status: { type: String, enum: ['topTwenty', 'backup', 'underConsideration', 'notUnderConsideration'] },
-   children: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ProjChoice' }]
+   creator: { type:mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });
 
 module.exports = mongoose.model('ProjChoice', projChoiceSchema);

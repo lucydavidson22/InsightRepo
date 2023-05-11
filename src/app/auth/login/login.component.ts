@@ -10,6 +10,8 @@ import { Subscription } from "rxjs";
 export class LoginComponent implements OnInit, OnDestroy{
     isLoading = false;
     private authStatusSub: Subscription;
+    // showPwd = false; // <-- added variable for password visibility
+    showPwd = false; // <-- changed variable name to match HTML
 
     constructor(public authService: AuthService){}
     
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit, OnDestroy{
         }
         this.authService.login(form.value.email, form.value.password);
     }
+
+    togglePasswordVisibility() {
+        this.showPwd = !this.showPwd;
+    }
+      
         
     ngOnDestroy(): void {
         this.authStatusSub.unsubscribe();
