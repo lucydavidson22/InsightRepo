@@ -45,7 +45,7 @@ export class PubPaperEditComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm){
     const value = form.value;
-    const newPubPaper = new PubPaper('0', value.name, value.year, value.pub, value.cat, value.projDesc, value.profPage, value.topic, value.citation);
+    const newPubPaper = new PubPaper('0', value.name, value.year, value.pub, value.cat, value.projDesc, value.profPage, value.topic, value.citation, value.creator);
                                     //could an error be here because it expects a value.id
     if(this.editMode){
       this.pubPaperService.updatePubPaper(this.originalPubPaper, newPubPaper)

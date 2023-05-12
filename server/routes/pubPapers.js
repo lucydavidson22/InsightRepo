@@ -30,7 +30,8 @@ router.post('/', (req, res, next) => {
     projDesc: req.body.projDesc,
     profPage: req.body.profPage,
     topic: req.body.topic,
-    citation: req.body.citation
+    citation: req.body.citation,
+    creator: req.userData.userId
   });
 
   pubPaper.save()
@@ -58,7 +59,8 @@ router.put('/:id', (req, res, next) => {
       pubPaper.projDesc = req.body.projDesc,
       pubPaper.profPage = req.body.profPage,
       pubPaper.topic = req.body.topic,
-      pubPaper.citation = req.body.citation
+      pubPaper.citation = req.body.citation,
+      pubPaper.creator = req.userData.userId
 
       PubPaper.updateOne({ id: req.params.id }, pubPaper)
         .then(result => {

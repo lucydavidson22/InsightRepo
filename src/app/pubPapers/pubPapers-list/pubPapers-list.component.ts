@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { PubPaper } from '../pubPaper.model';
 import { PubPaperService } from '../pubPaper.service';
 
@@ -13,8 +14,12 @@ export class PubPapersListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   term:string;
 
+  userIsAuthenticated = false;
+  userId: string;
+  private authStatusSub: Subscription;
+
   constructor(private pubPaperService: PubPaperService,
-              ) { }
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.pubPaperService.pubPaperChangedEvent.subscribe(
@@ -26,6 +31,13 @@ export class PubPapersListComponent implements OnInit, OnDestroy {
     this.subscription = this.pubPaperService.pubPaperListChangedEvent.subscribe(pubPaperList => {
       this.pubPapers = pubPaperList;
     });
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authStatusSub = this.authService
+    .getAuthStatusListener()
+    .subscribe(isAuthenticated => {
+      this.userIsAuthenticated = isAuthenticated;
+      this.userId = this.authService.getUserId()
+    })
   }
 
   ngOnDestroy(): void {
